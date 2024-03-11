@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" alt="">
+    
+</body>
+<div id="target"></div>
+
+
+<script>
+
+    var html = ""
+
+    for(let i = 0; i < 12; i++) {
+        var link = "https://picsum.photos/350/350?random=" + i; 
+        html += `<img src="${link}" alt="">`; 
+    }
+
+    document.getElementById("target").innerHTML = html;
+
+
+
+
+
+</script>
+
+</html>
