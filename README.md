@@ -1,1 +1,1 @@
-TPs and exercises repositorie
+TPs and exercises repository
