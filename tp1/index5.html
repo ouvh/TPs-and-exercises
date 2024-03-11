@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >le prix TTC est : <span id="target"></span></div>
+    
+</body>
+
+<script>
+
+    let prix = parseFloat(prompt("entrez le prix HT"))
+    let TVA = parseFloat(prompt("entrez le taux TVA en pourcentage"))
+    let response;
+
+    while (isNaN(prix) || isNaN(TVA) || prix <=0 || TVA <=0 || TVA >=100){
+        alert(" veuillez entrer des valeurs valides")
+        prix = parseFloat(prompt("entrez le prix HT"))
+        TVA = parseFloat(prompt("entrez le taux TVA en pourcentage"))
+
+    }
+   
+    
+    
+    
+    
+    
+    response = prix*(1+TVA*0.01);
+  
+    
+    document.getElementById("target").innerHTML = `${response}`
+
+</script>
+</html>
