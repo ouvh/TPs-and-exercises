@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="1" name="1" value="0">
+    
+    <input type="text" id="2" name="2" value="0">
+    <button onclick="swap()"> Permuter </button>
+
+
+
+    
+</body>
+
+<script>
+    
+    const swap = ()=>{
+        let a = (document.getElementById("1").value)
+        let b = (document.getElementById("2").value)
+        document.getElementById("1").value = b
+        document.getElementById("2").value = a
+    }
+
+</script>
+
+</html>

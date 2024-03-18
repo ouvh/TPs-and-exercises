@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex;flex-direction: column; align-items: center;">
+        <h1>Formulaire de Contact</h1>
+
+        <form action="">
+            <ul>
+                <li>
+                    email :
+                    <input type="email" name="email" id="emaili" required>
+                </li>
+
+                <li>
+                    objet :
+                    <input type="text" name="objet" id="objeti" required>
+                </li>
+
+                <li>
+                    coprs :
+                    <textarea name="corps" id="corpsi" cols="30" rows="10" required></textarea>
+                </li>
+
+            </ul>
+
+            <input type="submit" value="Envoyer l'email" onclick="send(event)">
+
+        </form>
+
+        <div style="margin-top: 50px;width: 50%;">
+        <div>Sender: <span id="sender"></span></div>
+        <div>objet: <span id="objet"></span></div>
+        <div>Corps de l'email: <span id="corps"></span></div>
+        </div>
+
+    </div>
+    
+</body>
+
+
+<script>
+    const send = (event)=>{
+        event.preventDefault()
+        document.getElementById("sender").innerHTML = document.getElementById("emaili").value
+        document.getElementById("objet").innerHTML = document.getElementById("objeti").value
+        document.getElementById("corps").innerHTML = document.getElementById("corpsi").value
+
+    }
+</script>
+</html>

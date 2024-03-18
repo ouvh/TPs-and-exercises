@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="https://www.youtube.com" onclick="preventRedirect(event)">Cliquez ici</a>
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+    <div id="menuDiv" onmouseleave="closeMenu()" style=" width: max-content;background-color: lightcyan; border: 2px black solid;"> <span id="title"> Afficher le menu </span>
+        <div id="myMenu" class="menu" style="display: none;">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+          </div>
+        
+        </div>
+    </div>
+
+    
+
+
+</body>
+
+<script>
+
+    const  preventRedirect = (event)=> {
+      event.preventDefault(); 
+      alert("Redirection interdite");
+    }
+
+    const displayMenu = () => {
+      document.getElementById("myMenu").style.display = "block";
+      document.getElementById("title").innerText = "Menu";
+
+
+    }
+
+
+    const  closeMenu = () => {
+      document.getElementById("myMenu").style.display = "none";
+      document.getElementById("title").innerText = "Afficher le menu";
+
+    }
+
+    document.getElementById("menuDiv").addEventListener("click", displayMenu);
+
+
+</script>
+</html>

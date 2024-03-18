@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="target"></span>
+    
+</body>
+
+<script>
+
+    let a = parseFloat(prompt("entrez le premier nombre"))
+    while (isNaN(a)){
+        alert(" veuillez entrer une valeur numerique pour le premier nombre !!!! ")
+         a = parseFloat(prompt("entrez le premier nombre"))
+    }
+
+
+    let b = parseFloat(prompt("entrez le deuxieme nombre"))
+    while (isNaN(b)){
+        alert(" veuillez entrer une valeur numerique pour le deuxieme nombre !!!! ")
+         b = parseFloat(prompt("entrez le deuxieme nombre"))
+    }
+
+
+    let c = parseFloat(prompt("entrez le troisieme nombre"))
+    while (isNaN(c)){
+        alert(" veuillez entrer une valeur numerique pour le troisieme nombre !!!! ")
+         c = parseFloat(prompt("entrez le troisieme nombre"))
+    }
+
+    let response;
+
+    if(a === b === c){
+        response = "Les trois variables sont identiques"
+    }
+    else if(a === b || a === c || b === c){
+        response = "Deux des variables sont de valeurs égales"
+    }
+    else{
+        response = "Les trois variables sont différentes"
+    }
+
+    document.getElementById("target").style.fontSize = `50px`
+    document.getElementById("target").innerHTML = `${response}`
+
+</script>
+</html>
