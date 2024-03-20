@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #0056b3;
+    }
+
+    #container {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px; 
+      width: 100%;
+      max-width: 600px; 
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+      width: calc(10% - 10px); 
+      height: 50px;
+      background-color: #f0f0f0;
+      border: 1px solid #999;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="containerr" style="display: flex; justify-content: center; margin-top: 50px;">
+       <form onsubmit="submitt(event)" action="" style="width: 50%;display: flex; flex-direction: column;">
+        <label for="">Dimension du tableau </label>
+        <input required type="number" min="1" id="dimension" >
+
+        <label for="">La valeur minimale </label>
+        <input required type="number"  id="minimale">
+
+        <label for="">La valeur maximale </label>
+        <input required type="number"  id="maximale">
+
+        <input type="submit" value="Générer un tableau">
+
+       </form>
+
+      
+
+    </div>
+
+    <div id="container">
+    </div>
+</body>
+
+<script>
+
+
+
+    const submitt = (event) => {
+       
+
+        event.preventDefault(); 
+        let min = parseInt(document.getElementById("minimale").value)
+        let max = parseInt(document.getElementById("maximale").value)
+        let dim = parseInt(document.getElementById("dimension").value)
+
+        if(min>= max){
+            alert("assurer vous que la valeur minimale est inferieure a la valeur maximale")
+            return false;
+        }
+
+        document.getElementById("container").innerHTML = ""
+        document.getElementById("container").style.display = "flex"
+
+        
+
+        for (let i=0;i<dim;i++){
+            document.getElementById("container").innerHTML +=  `<div class="box">${Math.floor( Math.random() * (max - min + 1)) + min}</div>`
+        }
+
+    }
+
+</script>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire d'enregistrement des notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    form {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      width: calc(100% - 12px);
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulaire d'enregistrement des notes</h1>
+  <form id="notesForm" onsubmit="return validateForm(event)">
+    <div>
+      <label for="codeEtudiant">Code étudiant :</label>
+      <input type="text" id="codeEtudiant" name="codeEtudiant" required>
+    </div>
+    <div>
+      <label for="nomEtudiant">Nom étudiant :</label>
+      <input type="text" id="nomEtudiant" name="nomEtudiant" required>
+    </div>
+    <div>
+      <label for="prenomEtudiant">Prénom étudiant :</label>
+      <input type="text" id="prenomEtudiant" name="prenomEtudiant" required>
+    </div>
+    <div>
+      <label for="semestre">Semestre :</label>
+      <select id="semestre" name="semestre" required>
+        <option value="">Sélectionnez le semestre</option>
+        <option value="Semestre 1">Semestre 1</option>
+        <option value="Semestre 2">Semestre 2</option>
+      </select>
+    </div>
+    <div>
+      <label for="noteModule1">Note Module 1 :</label>
+      <input type="text" id="noteModule1" name="noteModule1" required>
+    </div>
+    <div>
+      <label for="noteModule2">Note Module 2 :</label>
+      <input type="text" id="noteModule2" name="noteModule2" required>
+    </div>
+    <div>
+      <label for="noteModule3">Note Module 3 :</label>
+      <input type="text" id="noteModule3" name="noteModule3" required>
+    </div>
+    <div>
+      <label for="noteModule4">Note Module 4 :</label>
+      <input type="text" id="noteModule4" name="noteModule4" required>
+    </div>
+    <div>
+      <label for="noteModule5">Note Module 5 :</label>
+      <input type="text" id="noteModule5" name="noteModule5" required>
+    </div>
+    <div>
+      <label for="noteModule6">Note Module 6 :</label>
+      <input type="text" id="noteModule6" name="noteModule6" required>
+    </div>
+    <div>
+      <input type="submit" value="Enregistrer">
+      <input type="reset" value="Réinitialiser">
+    </div>
+  </form>
+
+  <table id="studentsTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>Code étudiant</th>
+        <th>Nom étudiant</th>
+        <th>Prénom étudiant</th>
+        <th>Semestre</th>
+        <th>Note Module 1</th>
+        <th>Note Module 2</th>
+        <th>Note Module 3</th>
+        <th>Note Module 4</th>
+        <th>Note Module 5</th>
+        <th>Note Module 6</th>
+        <th>Moyenne</th>
+        <th>Décision</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    let student = [];
+
+
+    function validateForm(event) {
+        event.preventDefault(); 
+
+      const codeEtudiant = document.getElementById('codeEtudiant').value;
+      const nomEtudiant = document.getElementById('nomEtudiant').value;
+      const prenomEtudiant = document.getElementById('prenomEtudiant').value;
+      const semestre = document.getElementById('semestre').value;
+      const noteModule1 = document.getElementById('noteModule1').value;
+      const noteModule2 = document.getElementById('noteModule2').value;
+      const noteModule3 = document.getElementById('noteModule3').value;
+      const noteModule4 = document.getElementById('noteModule4').value;
+      const noteModule5 = document.getElementById('noteModule5').value;
+      const noteModule6 = document.getElementById('noteModule6').value;
+
+      if (!codeEtudiant || !nomEtudiant || !prenomEtudiant || !semestre ||
+          !noteModule1 || !noteModule2 || !noteModule3 || !noteModule4 ||
+          !noteModule5 || !noteModule6) {
+        alert('Tous les champs doivent être remplis');
+        return false;
+      }
+
+      if (semestre === "") {
+        alert('Veuillez sélectionner un semestre');
+        return false;
+      }
+
+      if (isNaN(parseFloat(noteModule1)) || isNaN(parseFloat(noteModule2)) ||
+          isNaN(parseFloat(noteModule3)) || isNaN(parseFloat(noteModule4)) ||
+          isNaN(parseFloat(noteModule5)) || isNaN(parseFloat(noteModule6))) {
+        alert('Les notes doivent être des nombres');
+        return false;
+      }
+
+      if (
+            parseFloat(noteModule1) < 0 || parseFloat(noteModule1) > 20 ||
+            parseFloat(noteModule2) < 0 || parseFloat(noteModule2) > 20 ||
+            parseFloat(noteModule3) < 0 || parseFloat(noteModule3) > 20 ||
+            parseFloat(noteModule4) < 0 || parseFloat(noteModule4) > 20 ||
+            parseFloat(noteModule5) < 0 || parseFloat(noteModule5) > 20 ||
+            parseFloat(noteModule6) < 0 || parseFloat(noteModule6) > 20
+        ) {
+        alert('Les notes doivent être des nombres entre 0 et 20');
+        return false; 
+        }
+
+
+
+
+
+      if(student.includes(codeEtudiant)){
+        alert("cet etudiant existe deja dans le tableau")
+        return false
+      }
+
+      student.push(codeEtudiant)
+
+      document.getElementById("studentsTable").style = "auto"
+      const tableBody = document.querySelector('#studentsTable tbody');
+      const newRow = tableBody.insertRow();
+      let decision;
+
+      const module_non_valide = [noteModule1,
+        noteModule2,
+        noteModule3,
+        noteModule4,
+        noteModule5,
+        noteModule6].map((a)=>{ return parseFloat(a)}).filter(note=>note<12).length
+
+        const note_eliminatoire = [noteModule1,
+        noteModule2,
+        noteModule3,
+        noteModule4,
+        noteModule5,
+        noteModule6].map((a)=>{ return parseFloat(a)}).filter(note=>note<8).length
+
+        const moyenne = ([noteModule1,
+        noteModule2,
+        noteModule3,
+        noteModule4,
+        noteModule5,
+        noteModule6].map((a)=>{ return parseFloat(a)}).reduce((a, b) => a + b, 0))/6
+
+
+
+
+      if (moyenne.toFixed(3) >= 12 && note_eliminatoire<1 && module_non_valide < 3){
+        decision ="Semestre  validé"
+      }
+      else{
+        decision = "Semestre Non Validé"
+      }
+
+      const cells = [
+        codeEtudiant,
+        nomEtudiant,
+        prenomEtudiant,
+        semestre,
+        noteModule1,
+        noteModule2,
+        noteModule3,
+        noteModule4,
+        noteModule5,
+        noteModule6,
+        moyenne.toFixed(3),
+        decision
+      ];
+
+      cells.forEach((cellData) => {
+        const cell = newRow.insertCell();
+        const text = document.createTextNode(cellData);
+        cell.appendChild(text);
+      });
+
+      document.getElementById('notesForm').reset();
+      
+
+
+      return true;
+    }
+  
+  
+  </script>
+</body>
+</html>

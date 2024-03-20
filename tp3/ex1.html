@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+        <form onsubmit="submitt(event)" action="" style="display: flex; flex-direction: column; align-items: left; justify-content: left;">
+
+            <div>
+                <label for="Nom">Nom : </label>
+                <input required type="text" name="Nom" id="Nom">
+            </div>
+
+            <div>
+                <label for="Prenom">Prenom : </label>
+                <input required type="text" name="Prenom" id="Prenom">
+            </div>
+
+            <div>
+                <label for="E-mail">E-mail : </label>
+                <input required type="email" name="E-mail" id="E-mail">
+            </div>
+
+            
+            <div>
+                <label for="mot_de_passe">mot de passe : </label>
+                <input required type="password" name="mot_de_passe" id="mot_de_passe">
+            </div>
+
+            <div>
+                <label for="Resaisir_le_mot_de_passe">Resaisir le mot de passe : </label>
+                <input required type="password" name="Resaisir_le_mot_de_passe" id="Resaisir_le_mot_de_passe">
+            </div>
+
+            <div>
+                <label for="Telephone">Telephone : </label>
+                <input required type="tel" pattern="[0-9]{10}" name="Telephone" id="Telephone">
+            </div>
+
+            <div>
+                <label for="Langue">Langue : </label>
+                <select required name="Langue" id="Langue">
+                    <option value="Anglais">Anglais</option>
+                    <option value="Francais">Francais</option>
+                    <option value="Arabe">Arabe</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="">Commentaire : </label>
+                <textarea required name="Commentaire" id="Commentaire" cols="30" rows="10"></textarea>
+            </div>
+            
+            <div>
+                <input type="submit" value="Valider">
+                <input type="reset" value="Annuler">
+            </div>
+
+        </form>
+
+
+            <div id="Recapitulatif" style="margin-top: 50px; display: none;">
+
+            <h2>Recapitulatif</h2>
+
+            <div>Nom: <span id="Nomi"></span></div>
+            <div>Prenom: <span id="Prenomi"></span></div>
+            <div>E-mail: <span id="E-maili"></span></div>
+            <div>mot de passe: <span id="mot_de_passei"></span></div>
+            <div>Telephone: <span id="Telephonei"></span></div>
+            <div>Langue: <span id="Languei"></span></div>
+            <div>Commentaire: <span id="Commentairei"></span></div>
+
+
+
+            </div>
+
+    </div>
+
+    
+</body>
+
+<script>
+
+    const set = (id) =>{
+        document.getElementById(id+"i").innerHTML = document.getElementById(id).value
+
+    }
+
+    const fill = () => {
+        document.getElementById("Recapitulatif").style.display = "block"
+        const fields = ["Nom","Prenom","E-mail","mot_de_passe","Telephone","Langue","Commentaire"]
+        fields.forEach(set)
+    }
+
+    const submitt = (event) => {
+        
+        event.preventDefault(); 
+
+
+        if (document.getElementById("mot_de_passe").value != document.getElementById("Resaisir_le_mot_de_passe").value){
+            alert("vueillez entrez le meme mot de passe dans les duex champs")
+            return false;
+        }
+
+        fill()
+        document.querySelector("form").reset()
+        return true;
+        
+
+    }
+
+
+</script>
+</html>
