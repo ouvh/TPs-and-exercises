@@ -1,0 +1,40 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "titre": "Software Engineer",
+      "description": "Develops software solutions by studying information needs; conferring with users; studying systems flow, data usage, and work processes; investigating problem areas; following the software development lifecycle.",
+      "salaire": "$80,000 - $120,000 per year",
+      "creationdate": "2024-04-27",
+      "location": "San Francisco, CA",
+      "company": "TechCo"
+    },
+    {
+      "id": 2,
+      "titre": "Data Scientist",
+      "description": "Analyzes complex data sets to extract insights and make data-driven decisions. Develops statistical models, machine learning algorithms, and predictive analytics to solve business problems.",
+      "salaire": "$90,000 - $130,000 per year",
+      "creationdate": "2024-04-27",
+      "location": "New York City, NY",
+      "company": "DataAnalytics Inc."
+    },
+    {
+      "id": 3,
+      "titre": "UX/UI Designer",
+      "description": "Creates user-friendly and visually appealing interfaces for web and mobile applications. Conducts user research, designs wireframes and prototypes, and collaborates with developers to implement designs.",
+      "salaire": "$70,000 - $100,000 per year",
+      "creationdate": "2024-04-27",
+      "location": "Seattle, WA",
+      "company": "DesignWorks"
+    },
+    {
+      "id": 4,
+      "titre": "Marketing Manager",
+      "description": "Develops and executes marketing strategies to promote products or services. Oversees marketing campaigns, analyzes market trends, and collaborates with cross-functional teams to achieve business objectives.",
+      "salaire": "$80,000 - $110,000 per year",
+      "creationdate": "2024-04-27",
+      "location": "Chicago, IL",
+      "company": "MarketingPro"
+    }
+  ]
+}
